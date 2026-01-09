@@ -1,0 +1,27 @@
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Hide the large file-upload dropzone overlay (paperclip/attach graphic)
+   This targets Chakra's FileUpload dropzone slot and any document-level
+   drop overlays that use data-dragging attributes. It's a non-destructive
+   override that keeps the small upload trigger/button while removing
+   the big centered graphic shown during drag-and-drop. */
+.chakra-file-upload__dropzone,
+[data-dragging="true"].chakra-file-upload__dropzone,
+[data-dragging="true"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Also hide any dropzone content elements rendered by the file upload
+   component (defensive selectors). */
+[data-part="dropzone"],
+[data-part="dropzone"] * {
+  display: none !important;
+}
